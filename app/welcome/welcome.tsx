@@ -26,10 +26,6 @@ export function Welcome() {
             Login
           </a>
         </div>
-
-        <div className="pt-6 text-sm text-gray-500 dark:text-gray-400">
-          Built with React Router + Express + Prisma
-        </div>
       </div>
     </main>
   );
