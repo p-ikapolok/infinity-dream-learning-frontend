@@ -1,5 +1,3 @@
-import InfiniteDreamSchoolLogo from "./InfiniteDreamSchoolLogo";
-
 export function Welcome() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
@@ -7,7 +5,17 @@ export function Welcome() {
 
         {/* Logo */}
         <div className="flex justify-center">
-          <InfiniteDreamSchoolLogo />
+          <img
+            src="./logo-light.svg"
+            alt="Infinity Dream School Logo"
+            className="h-24 dark:hidden"
+          />
+
+          <img
+            src="./logo-dark.svg"
+            alt="Infinity Dream School Logo"
+            className="h-24 hidden dark:block"
+          />
         </div>
 
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
@@ -34,6 +42,7 @@ export function Welcome() {
             Login
           </a>
         </div>
+
       </div>
     </main>
   );
