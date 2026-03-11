@@ -1,3 +1,6 @@
+import logoLight from "./logo-light.svg";
+import logoDark from "./logo-dark.svg";
+
 export function Welcome() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
@@ -6,13 +9,13 @@ export function Welcome() {
         {/* Logo */}
         <div className="flex justify-center">
           <img
-            src="./logo-light.svg"
+            src={logoLight}
             alt="Infinity Dream School Logo"
             className="h-24 dark:hidden"
           />
 
           <img
-            src="./logo-dark.svg"
+            src={logoDark}
             alt="Infinity Dream School Logo"
             className="h-24 hidden dark:block"
           />
