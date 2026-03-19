@@ -5,12 +5,17 @@ export const getCourses = async () => {
   return data
 }
 
-export const getCourse = async (courseId: string) => {
-  const { data } = await http.get(`/courses/${courseId}`)
+export const getCourseById = async (id: string) => {
+  const { data } = await http.get(`/courses/${id}`)
   return data
 }
 
 export const enrollCourse = async (courseId: string) => {
   const { data } = await http.post(`/courses/${courseId}/enroll`)
+  return data
+}
+
+export const getMyCourses = async () => {
+  const { data } = await http.get("/courses/my")
   return data
 }
