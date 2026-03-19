@@ -7,6 +7,8 @@ import Courses from "../pages/public/Courses"
 import About from "../pages/public/About"
 import Pricing from "../pages/public/Pricing"
 import Contact from "../pages/public/Contact"
+import Login from "../pages/auth/Login"
+import Register from "../pages/auth/Register"
 
 function PublicRoutes() {
   return (
