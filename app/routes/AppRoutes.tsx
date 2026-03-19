@@ -6,6 +6,7 @@ import AthenaRoutes from "./AthenaRoutes"
 
 import ProtectedRoute from "./ProtectedRoute"
 import SubscriptionRoute from "./SubscriptionRoute"
+import Analytics from "../pages/admin/Analytics"
 
 function AppRoutes() {
   return (
@@ -35,6 +36,8 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      <Route path="/admin/analytics" element={<Analytics />} />
+
 
     </Routes>
   )
