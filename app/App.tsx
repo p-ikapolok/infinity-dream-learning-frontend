@@ -9,6 +9,7 @@ import { ThemeProvider } from "./context/ThemeContext"
 
 function App() {
   return (
+  <ThemeProvider>
     <BrowserRouter>
       <AuthProvider>
         <SubscriptionProvider>
@@ -18,7 +19,6 @@ function App() {
         </SubscriptionProvider>
       </AuthProvider>
     </BrowserRouter>
-   <ThemeProvider>
   </ThemeProvider>
   )
 }
