@@ -11,6 +11,7 @@ import Community from "../pages/athena/Community"
 import Support from "../pages/athena/Support"
 import AI from "../pages/athena/AI"
 import Certificates from "../pages/athena/Certificates"
+import Community from "../pages/athena/Community"
 
 function AthenaRoutes() {
   return (
@@ -27,6 +28,7 @@ function AthenaRoutes() {
         <Route path="support" element={<Support />} />
         <Route path="ai" element={<AI />} />
         <Route path="certificates" element={<Certificates />} />
+        <Route path="community" element={<Community />} />
 
       </Routes>
     </AthenaLayout>
