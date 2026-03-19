@@ -25,7 +25,7 @@ function Sidebar() {
         <Link to="/learn/lessons">Lessons</Link>
         <Link to="/learn/live-classes">Live Classes</Link>
         <Link to="/learn/scheduler">Scheduler</Link>
-       <Link to="/athena/community">Community</Link>
+        <Link to="/athena/community">Community</Link>
 
       </nav>
 
