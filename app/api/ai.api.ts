@@ -28,3 +28,8 @@ export const submitQuiz = async (answers: any) => {
   const { data } = await http.post("/ai/quiz/submit", answers)
   return data
 }
+
+export const askAI = async (payload: any) => {
+  const { data } = await http.post("/ai/ask", payload)
+  return data
+}
