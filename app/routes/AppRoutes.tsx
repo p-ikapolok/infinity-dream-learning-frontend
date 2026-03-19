@@ -4,15 +4,37 @@ import PublicRoutes from "./PublicRoutes"
 import EHubRoutes from "./EHubRoutes"
 import AthenaRoutes from "./AthenaRoutes"
 
+import ProtectedRoute from "./ProtectedRoute"
+import SubscriptionRoute from "./SubscriptionRoute"
+
 function AppRoutes() {
   return (
     <Routes>
 
+      {/* Public */}
       <Route path="/*" element={<PublicRoutes />} />
 
-      <Route path="/hub/*" element={<EHubRoutes />} />
+      {/* Hub (login required) */}
+      <Route
+        path="/hub/*"
+        element={
+          <ProtectedRoute>
+            <EHubRoutes />
+          </ProtectedRoute>
+        }
+      />
 
-      <Route path="/learn/*" element={<AthenaRoutes />} />
+      {/* Learning Portal (login + subscription) */}
+      <Route
+        path="/learn/*"
+        element={
+          <ProtectedRoute>
+            <SubscriptionRoute>
+              <AthenaRoutes />
+            </SubscriptionRoute>
+          </ProtectedRoute>
+        }
+      />
 
     </Routes>
   )
