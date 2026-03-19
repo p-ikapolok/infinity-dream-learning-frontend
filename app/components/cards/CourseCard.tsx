@@ -1,21 +1,27 @@
-import Card from "../common/Card"
+import { useNavigate } from "react-router-dom"
 
 interface Props {
+  id: string
   title: string
   description: string
 }
 
-function CourseCard({ title, description }: Props) {
+function CourseCard({ id, title, description }: Props) {
+
+  const navigate = useNavigate()
+
   return (
-    <Card>
+    <div className="card">
 
       <h3>{title}</h3>
 
       <p>{description}</p>
 
-      <button>View Course</button>
+      <button onClick={() => navigate(`/hub/courses/${id}`)}>
+        View Course
+      </button>
 
-    </Card>
+    </div>
   )
 }
 
