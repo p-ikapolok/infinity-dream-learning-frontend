@@ -1,39 +1,18 @@
 import { useEffect, useState } from "react"
-import { getCourses } from "../../api/course.api"
-import CourseCard from "../../components/cards/CourseCard"
 
-function Dashboard() {
-
-  const [courses, setCourses] = useState<any[]>([])
+export default function AthenaDashboard() {
+  const [welcome, setWelcome] = useState("")
 
   useEffect(() => {
-    loadCourses()
+    setWelcome("Welcome to Athena Learning Portal")
   }, [])
 
-  const loadCourses = async () => {
-    const data = await getCourses()
-    setCourses(data)
-  }
-
   return (
-    <div>
-
-      <h2>Learning Dashboard</h2>
-
-      <div className="course-grid">
-
-        {courses.map((course) => (
-          <CourseCard
-            key={course.id}
-            title={course.title}
-            description={course.description}
-          />
-        ))}
-
-      </div>
-
+    <div className="p-6">
+      <h1 className="text-3xl font-bold text-purple-700">{welcome}</h1>
+      <p className="text-gray-600 dark:text-gray-300 mt-2">
+        Access courses, AI recommendations, live classes, and your schedule.
+      </p>
     </div>
   )
 }
-
-export default Dashboard
