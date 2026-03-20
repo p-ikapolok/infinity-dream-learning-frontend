@@ -1,24 +1,21 @@
+// Path: src/routes/AppRoutes.tsx
 import { Routes, Route } from "react-router-dom"
 
-// Route groups
 import PublicRoutes from "./PublicRoutes"
 import EHubRoutes from "./EHubRoutes"
 import AthenaRoutes from "./AthenaRoutes"
 
-// Route guards
 import ProtectedRoute from "./ProtectedRoute"
 import SubscriptionRoute from "./SubscriptionRoute"
-
-// Admin pages
 import Analytics from "../pages/admin/Analytics"
 
-function AppRoutes() {
+export default function AppRoutes() {
   return (
     <Routes>
-      {/* Public Routes */}
+      {/* Public routes */}
       <Route path="/*" element={<PublicRoutes />} />
 
-      {/* EHub: Login required */}
+      {/* EHub (requires login) */}
       <Route
         path="/hub/*"
         element={
@@ -28,7 +25,7 @@ function AppRoutes() {
         }
       />
 
-      {/* Learning Platform: Login + Subscription */}
+      {/* Athena (requires login + subscription) */}
       <Route
         path="/learn/*"
         element={
@@ -40,10 +37,8 @@ function AppRoutes() {
         }
       />
 
-      {/* Admin Analytics */}
+      {/* Admin */}
       <Route path="/admin/analytics" element={<Analytics />} />
     </Routes>
   )
 }
-
-export default AppRoutes
