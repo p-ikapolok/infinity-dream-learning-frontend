@@ -1,4 +1,19 @@
+// Path: src/routes/EHubRoutes.tsx
 import { Routes, Route } from "react-router-dom"
+
+import Dashboard from "../pages/ehub/dashboard"
+import Community from "../pages/ehub/community"
+import AskAI from "../pages/ehub/askai"
+
+export default function EHubRoutes() {
+  return (
+    <Routes>
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="community" element={<Community />} />
+      <Route path="ask-ai" element={<AskAI />} />
+    </Routes>
+  )
+}import { Routes, Route } from "react-router-dom"
 import EHubLayout from "../layouts/EHubLayout"
 
 import EHubDashboard from "../pages/ehub/EHubDashboard"
