@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 
 export const useSocket = (url: string) => {
-
   const [socket, setSocket] = useState<WebSocket | null>(null)
   const [messages, setMessages] = useState<any[]>([])
 
@@ -14,7 +13,6 @@ export const useSocket = (url: string) => {
     }
 
     setSocket(ws)
-
     return () => ws.close()
   }, [url])
 
