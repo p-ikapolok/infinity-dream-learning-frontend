@@ -1,18 +1,14 @@
+// Path: src/routes/ProtectedRoute.tsx
+import { useContext } from "react"
 import { Navigate } from "react-router-dom"
-import { useAuth } from "../hooks/useAuth"
+import { AuthContext } from "../context/authcontext"
 
-interface Props {
-  children: JSX.Element
-}
+export default function ProtectedRoute({ children }: any) {
+  const auth = useContext(AuthContext)
 
-function ProtectedRoute({ children }: Props) {
-  const { user } = useAuth()
-
-  if (!user) {
-    return <Navigate to="/login" replace />
+  if (!auth?.user) {
+    return <Navigate to="/home" replace />
   }
 
   return children
 }
-
-export default ProtectedRoute
