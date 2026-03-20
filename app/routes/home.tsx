@@ -1,5 +1,5 @@
 // Home.tsx
-import Welcome from "./welcome" //  Correct relative path
+import welcome from "./welcome" //  Correct relative path
 
 export function meta() {
   return [
