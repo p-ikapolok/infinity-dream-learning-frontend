@@ -4,9 +4,12 @@ import AppRoutes from "./routes/AppRoutes"
 import { AuthProvider } from "./context/AuthContext"
 import { SubscriptionProvider } from "./context/SubscriptionContext"
 import { NotificationProvider } from "./context/NotificationContext"
+import { ThemeProvider } from "./context/ThemeContext"
+
 
 function App() {
   return (
+  <ThemeProvider>
     <BrowserRouter>
       <AuthProvider>
         <SubscriptionProvider>
@@ -16,6 +19,7 @@ function App() {
         </SubscriptionProvider>
       </AuthProvider>
     </BrowserRouter>
+  </ThemeProvider>
   )
 }
 
