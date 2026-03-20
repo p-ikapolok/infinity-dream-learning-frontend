@@ -9,5 +9,5 @@ export function meta() {
 }
 
 export default function Home() {
-  return <Welcome />; // Renders the Welcome / splash page
+  return <welcome />; // Renders the Welcome / splash page
 }
