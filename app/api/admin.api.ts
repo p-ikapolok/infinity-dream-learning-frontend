@@ -13,3 +13,7 @@ export const getAllCourses = async () => {
 export const deleteUser = async (id: string) => {
   await http.delete(`/admin/users/${id}`)
 }
+
+export const createCourse = async (title: string) => {
+  await http.post("/admin/courses", { title })
+}
