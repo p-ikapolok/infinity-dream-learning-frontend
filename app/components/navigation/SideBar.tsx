@@ -1,36 +1,22 @@
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
-function Sidebar() {
+export default function SideBar() {
+  const [collapsed, setCollapsed] = useState(false)
+
   return (
-    <aside className="sidebar">
-
-      <h3>IDL</h3>
-
-      <nav>
-
-        <p>Hub</p>
-
-        <Link to="/hub/dashboard">Dashboard</Link>
-        <Link to="/hub/courses">Courses</Link>
-        <Link to="/hub/community">Community</Link>
-        <Link to="/hub/events">Events</Link>
-        <Link to="/hub/ai">Ask AI</Link>
-
-        <hr />
-
-        <p>Learning</p>
-
-        <Link to="/learn/dashboard">Dashboard</Link>
-        <Link to="/learn/courses">Courses</Link>
-        <Link to="/learn/lessons">Lessons</Link>
-        <Link to="/learn/live-classes">Live Classes</Link>
-        <Link to="/learn/scheduler">Scheduler</Link>
-        <Link to="/athena/community">Community</Link>
-
+    <aside className={`bg-white dark:bg-gray-900 p-4 h-screen ${collapsed ? "w-20" : "w-64"} transition-width`}>
+      <button
+        onClick={() => setCollapsed(!collapsed)}
+        className="mb-6 px-2 py-1 bg-purple-700 text-white rounded"
+      >
+        {collapsed ? "→" : "←"}
+      </button>
+      <nav className="flex flex-col gap-3">
+        <Link to="/hub/dashboard" className="hover:text-purple-700">Dashboard</Link>
+        <Link to="/hub/community" className="hover:text-purple-700">Community</Link>
+        <Link to="/hub/ask-ai" className="hover:text-purple-700">Ask AI</Link>
       </nav>
-
     </aside>
   )
 }
-
-export default Sidebar
