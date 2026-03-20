@@ -1,13 +1,13 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+// Home.tsx
+import Welcome from "./Welcome" // ✅ Correct relative path
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Infinity Dream Learning" },
+    { name: "description", content: "Welcome to Infinity Dream Learning Platform" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <Welcome />; // Renders the Welcome / splash page
 }
