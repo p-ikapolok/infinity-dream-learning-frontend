@@ -1,44 +1,28 @@
-// Path: src/routes/AppRoutes.tsx
-import { Routes, Route } from "react-router-dom"
+// Path: src/routes/PublicRoutes.tsx
+import { Routes, Route, Navigate } from "react-router-dom"
 
-import PublicRoutes from "./PublicRoutes"
-import EHubRoutes from "./EHubRoutes"
-import AthenaRoutes from "./AthenaRoutes"
+import Home from "../routes/home" // ✅ Use your route home file
+import About from "../pages/public/About"
+import Courses from "../pages/public/Courses"
+import Pricing from "../pages/public/Pricing"
+import Contact from "../pages/public/Contact"
+import Welcome from "../pages/public/Welcome"
 
-import ProtectedRoute from "./ProtectedRoute"
-import SubscriptionRoute from "./SubscriptionRoute"
-import Analytics from "../pages/admin/Analytics"
-
-export default function AppRoutes() {
+export default function PublicRoutes() {
   return (
     <Routes>
-      {/* Public routes */}
-      <Route path="/*" element={<PublicRoutes />} />
+      {/* Splash welcome page */}
+      <Route path="/welcome" element={<Welcome />} />
 
-      {/* EHub (requires login) */}
-      <Route
-        path="/hub/*"
-        element={
-          <ProtectedRoute>
-            <EHubRoutes />
-          </ProtectedRoute>
-        }
-      />
+      {/* Redirect root → welcome */}
+      <Route path="/" element={<Navigate to="/welcome" />} />
 
-      {/* Athena (requires login + subscription) */}
-      <Route
-        path="/learn/*"
-        element={
-          <ProtectedRoute>
-            <SubscriptionRoute>
-              <AthenaRoutes />
-            </SubscriptionRoute>
-          </ProtectedRoute>
-        }
-      />
-
-      {/* Admin */}
-      <Route path="/admin/analytics" element={<Analytics />} />
+      {/* Actual public pages */}
+      <Route path="/home" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/courses" element={<Courses />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   )
 }
