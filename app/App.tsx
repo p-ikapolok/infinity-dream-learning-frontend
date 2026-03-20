@@ -6,20 +6,20 @@ import { SubscriptionProvider } from "./context/SubscriptionContext"
 import { NotificationProvider } from "./context/NotificationContext"
 import { ThemeProvider } from "./context/ThemeContext"
 
-
 function App() {
   return (
-  <ThemeProvider>
-    <BrowserRouter>
-      <AuthProvider>
-        <SubscriptionProvider>
-          <NotificationProvider>
-            <AppRoutes />
-          </NotificationProvider>
-        </SubscriptionProvider>
-      </AuthProvider>
-    </BrowserRouter>
-  </ThemeProvider>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <SubscriptionProvider>
+            <NotificationProvider>
+              {/* AppRoutes includes Welcome page as "/" */}
+              <AppRoutes />
+            </NotificationProvider>
+          </SubscriptionProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
