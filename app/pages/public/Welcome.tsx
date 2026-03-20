@@ -7,7 +7,7 @@ function Welcome() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/") // redirect to homepage
+      navigate("/home") // redirect to homepage
     }, 2500) // 2.5 seconds
 
     return () => clearTimeout(timer)
