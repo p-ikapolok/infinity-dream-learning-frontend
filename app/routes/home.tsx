@@ -1,7 +1,7 @@
+// routes/home.tsx
 import type { Route } from "./+types/home";
-import Welcome from "../pages/public/Welcome";
+import HomePage from "../pages/public/Home";
 
-// Added this line
 export { default } from "../pages/public/Home";
 
 export function meta({}: Route.MetaArgs) {
@@ -9,8 +9,4 @@ export function meta({}: Route.MetaArgs) {
     { title: "Infinity Dream Learning" },
     { name: "description", content: "AI-powered learning platform" },
   ];
-}
-
-export default function Home() {
-  return <Welcome />;
 }
