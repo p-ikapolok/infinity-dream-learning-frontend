@@ -1,61 +1,33 @@
 import { useEffect, useState } from "react"
-import { getPosts, createPost } from "../../api/community.api"
-import CommunityCard from "../../components/cards/CommunityCard"
 
-function Community() {
+interface Post {
+  id: string
+  content: string
+  author: string
+}
 
-  const [posts, setPosts] = useState<any[]>([])
-  const [content, setContent] = useState("")
+export default function Community() {
+  const [posts, setPosts] = useState<Post[]>([])
 
   useEffect(() => {
-    loadPosts()
+    // fetch community posts here
+    setPosts([
+      { id: "1", content: "This platform is amazing!", author: "Alice" },
+      { id: "2", content: "Just completed my first course!", author: "Bob" },
+    ])
   }, [])
 
-  const loadPosts = async () => {
-    const data = await getPosts()
-    setPosts(data)
-  }
-
-  const submitPost = async () => {
-
-    if (!content) return
-
-    await createPost(content)
-
-    setContent("")
-
-    loadPosts()
-  }
-
   return (
-    <div>
-
-      <h2>Community</h2>
-
-      <div>
-
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Share something..."
-        />
-
-        <button onClick={submitPost}>
-          Post
-        </button>
-
-      </div>
-
-      <div>
-
+    <div className="p-6">
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Community Feed</h2>
+      <div className="space-y-4">
         {posts.map((post) => (
-          <CommunityCard key={post.id} />
+          <div key={post.id} className="p-4 border rounded shadow bg-white dark:bg-gray-800">
+            <p className="text-gray-700 dark:text-gray-300">{post.content}</p>
+            <p className="text-sm text-gray-500 mt-1">— {post.author}</p>
+          </div>
         ))}
-
       </div>
-
     </div>
   )
 }
-
-export default Community
