@@ -1,47 +1,28 @@
 import { useState } from "react"
 import { askAI } from "../../api/ai.api"
 
-function AskAI() {
+export default function AskAI() {
+  const [question, setQuestion] = useState("")
+  const [answer, setAnswer] = useState("")
 
-  const [prompt, setPrompt] = useState("")
-  const [response, setResponse] = useState("")
-
-  const submitPrompt = async () => {
-
-    if (!prompt) return
-
-    const data = await askAI({ prompt })
-
-    setResponse(data.answer)
+  const handleAsk = async () => {
+    const res = await askAI({ prompt: question })
+    setAnswer(res.answer)
   }
 
   return (
-    <div>
-
-      <h2>Ask AI</h2>
-
+    <div className="p-6">
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Ask AI</h2>
       <input
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Ask anything..."
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="Ask a question..."
+        className="border p-2 rounded w-full mb-4 dark:bg-gray-700 dark:text-white"
       />
-
-      <button onClick={submitPrompt}>
+      <button onClick={handleAsk} className="px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-800">
         Ask
       </button>
-
-      {response && (
-        <div className="ai-response">
-
-          <h4>Response</h4>
-
-          <p>{response}</p>
-
-        </div>
-      )}
-
+      {answer && <p className="mt-4 text-gray-700 dark:text-gray-300">{answer}</p>}
     </div>
   )
 }
-
-export default AskAI
