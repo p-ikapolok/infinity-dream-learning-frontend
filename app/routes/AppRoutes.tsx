@@ -1,7 +1,7 @@
 // Path: src/routes/PublicRoutes.tsx
 import { Routes, Route, Navigate } from "react-router-dom"
 
-import Home from "../routes/home" // ✅ Use your route home file
+import Home from "../routes/home" // Use your route home file
 import About from "../pages/public/About"
 import Courses from "../pages/public/Courses"
 import Pricing from "../pages/public/Pricing"
