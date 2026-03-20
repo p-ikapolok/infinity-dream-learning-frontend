@@ -1,6 +1,5 @@
 import { BrowserRouter } from "react-router-dom"
 import AppRoutes from "./routes/AppRoutes"
-
 import { AuthProvider } from "./context/AuthContext"
 import { SubscriptionProvider } from "./context/SubscriptionContext"
 import { NotificationProvider } from "./context/NotificationContext"
@@ -13,7 +12,6 @@ function App() {
         <AuthProvider>
           <SubscriptionProvider>
             <NotificationProvider>
-              {/* AppRoutes includes Welcome page as "/" */}
               <AppRoutes />
             </NotificationProvider>
           </SubscriptionProvider>
