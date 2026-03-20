@@ -1,25 +1,18 @@
-import ThemeToggle from "./ThemeToggle"
+import ThemeToggle from "../ui/ThemeToggle"
 import NotificationBell from "./NotificationBell"
 import NineDotMenu from "./NineDotMenu"
 import ProfileDropdown from "./ProfileDropdown"
 
-function Navbar() {
+export default function Navbar() {
   return (
-    <header className="flex justify-between items-center p-4 border-b dark:border-slate-700">
-
-      <div className="font-bold text-lg">Dashboard</div>
-
-      <div className="flex gap-3 items-center">
-
+    <header className="flex justify-between items-center p-4 bg-white dark:bg-gray-900 shadow">
+      <div className="text-2xl font-bold text-purple-700">Infinity Dream Learning</div>
+      <div className="flex items-center gap-4">
         <ThemeToggle />
         <NotificationBell />
         <NineDotMenu />
         <ProfileDropdown />
-
       </div>
-
     </header>
   )
 }
-
-export default Navbar
