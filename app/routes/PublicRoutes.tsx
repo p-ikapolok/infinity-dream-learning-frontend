@@ -1,6 +1,6 @@
 // src/routes/PublicRoutes.tsx
 import { Routes, Route } from "react-router-dom"
-import Welcome from "../pages/public/Welcome"
+import Welcome from "../pages/public/welcome"
 import Home from "../pages/public/Home"
 import About from "../pages/public/About"
 import Courses from "../pages/public/Courses"
