@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { getUsers, deleteUser } from "../../api/admin.api"
-import CreateCourse from "../../components/admin/CreateCourse"
 
-function AdminDashboard() {
+interface User {
+  id: string
+  email: string
+}
 
-  const [users, setUsers] = useState<any[]>([])
+export default function AdminDashboard() {
+  const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
     loadUsers()
@@ -21,31 +24,21 @@ function AdminDashboard() {
   }
 
   return (
-    <div className="p-6 space-y-6">
-
-      <h2 className="text-2xl font-bold">Admin Panel</h2>
-
-      <CreateCourse />
-
+    <div className="p-6">
+      <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Admin Panel</h2>
       <div className="space-y-2">
         {users.map((u) => (
-          <div key={u.id} className="flex justify-between p-3 bg-white dark:bg-slate-800 rounded-xl shadow">
-
-            <p>{u.email}</p>
-
+          <div key={u.id} className="p-2 border rounded flex justify-between items-center bg-white dark:bg-gray-800">
+            <p className="text-gray-700 dark:text-gray-300">{u.email}</p>
             <button
               onClick={() => handleDelete(u.id)}
-              className="bg-red-500 text-white px-3 py-1 rounded-lg"
+              className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700"
             >
               Delete
             </button>
-
           </div>
         ))}
       </div>
-
     </div>
   )
 }
-
-export default AdminDashboard
