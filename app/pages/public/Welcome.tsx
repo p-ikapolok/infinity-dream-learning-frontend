@@ -6,8 +6,8 @@ function Welcome() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/") // go to homepage route
-    }, 2000) // 2 seconds
+      navigate("/home") // THIS MUST MATCH YOUR ROUTE
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [navigate])
@@ -17,6 +17,7 @@ function Welcome() {
       <h1 className="text-3xl font-bold">
         Infinity Dream Learning
       </h1>
+      <p>Loading...</p>
     </div>
   )
 }
