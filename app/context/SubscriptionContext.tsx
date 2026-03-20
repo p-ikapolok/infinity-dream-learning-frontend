@@ -1,23 +1,17 @@
-import { createContext, useState } from "react"
+import { createContext, useState, ReactNode } from "react"
 
 interface SubscriptionContextType {
-  plan: string | null
-  setPlan: (plan: string) => void
+  subscribed: boolean
+  setSubscribed: (val: boolean) => void
 }
 
-export const SubscriptionContext =
-  createContext<SubscriptionContextType | null>(null)
+export const SubscriptionContext = createContext<SubscriptionContextType | null>(null)
 
-export const SubscriptionProvider = ({ children }: any) => {
-
-  const [plan, setPlanState] = useState<string | null>(null)
-
-  const setPlan = (plan: string) => {
-    setPlanState(plan)
-  }
+export const SubscriptionProvider = ({ children }: { children: ReactNode }) => {
+  const [subscribed, setSubscribed] = useState(false)
 
   return (
-    <SubscriptionContext.Provider value={{ plan, setPlan }}>
+    <SubscriptionContext.Provider value={{ subscribed, setSubscribed }}>
       {children}
     </SubscriptionContext.Provider>
   )
