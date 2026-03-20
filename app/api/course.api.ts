@@ -1,7 +1,12 @@
-// Path: src/api/lesson.api.ts
+// Path: src/api/course.api.ts
 import http from "./http"
 
-export const getLessons = async () => {
-  const { data } = await http.get("/lessons")
+export const getCourses = async () => {
+  const { data } = await http.get("/courses")
+  return data
+}
+
+export const getCertificates = async () => {
+  const { data } = await http.get("/courses/certificates")
   return data
 }
